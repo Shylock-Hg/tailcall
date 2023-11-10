@@ -1,0 +1,9 @@
+query {
+  users {
+    id
+    name
+    posts {
+      title
+    }
+  }
+}

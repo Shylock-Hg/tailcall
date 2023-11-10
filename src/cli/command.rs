@@ -42,6 +42,10 @@ pub enum Command {
     /// Display schema
     #[arg(short, long)]
     schema: bool,
+
+    /// Operation file which separated by spaces if more than one
+    #[arg(short, long)]
+    operations: Option<Vec<String>>,
   },
   /// Initialize a new project
   Init { file_path: String },
