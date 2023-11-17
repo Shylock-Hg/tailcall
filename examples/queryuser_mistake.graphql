@@ -1,9 +1,6 @@
 query {
-  users {
+  posts {
     i
-    name
-    posts {
-      title
-    }
   }
 }
+

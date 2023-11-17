@@ -33,7 +33,8 @@ pub async fn run() -> Result<()> {
     }
     Command::Check { file_path, n_plus_one_queries, schema, operations } => {
       // validate configurations
-      let config = Config::from_file_paths(file_path.iter()).await?;
+      let mut config = Config::from_file_paths(file_path.iter()).await?;
+      config.server.enable_query_validation = Some(true);
       let blueprint = Blueprint::try_from(&config);
       match blueprint {
         Ok(blueprint) => {
