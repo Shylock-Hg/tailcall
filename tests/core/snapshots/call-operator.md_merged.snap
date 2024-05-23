@@ -1,5 +1,6 @@
 ---
 source: tests/core/spec.rs
+assertion_line: 235
 expression: formatter
 ---
 schema
@@ -29,8 +30,8 @@ type Post {
   user: User @call(steps: [{query: "user", args: {id: "{{.value.userId}}"}}])
   user1: User @call(steps: [{query: "user1"}])
   userFromValue: User @call(steps: [{query: "userFromValue"}])
-  userGraphQL: User @call(steps: [{query: "userGraphQL", args: {id: "{{.value.userId}}"}}])
-  userGraphQLHeaders: User @call(steps: [{query: "userGraphQLHeaders", args: {id: "{{.value.userId}}"}}])
+  userGraphQl: User @call(steps: [{query: "userGraphQL", args: {id: "{{.value.userId}}"}}])
+  userGraphQlHeaders: User @call(steps: [{query: "userGraphQLHeaders", args: {id: "{{.value.userId}}"}}])
   userHttpHeaders: User @call(steps: [{query: "userHttpHeaders", args: {id: "{{.value.userId}}"}}])
   userHttpQuery: User @call(steps: [{query: "userHttpQuery", args: {id: "{{.value.userId}}"}}])
   userId: Int!
@@ -44,9 +45,9 @@ type Query {
   user(id: Int!): User @http(path: "/users/{{.args.id}}")
   user1: User @http(path: "/users/1")
   userFromValue: User @http(path: "/users/{{.value.userId}}")
-  userGraphQL(id: Int): User
+  userGraphQl(id: Int): User
     @graphQL(args: [{key: "id", value: "{{.args.id}}"}], baseURL: "http://upstream/graphql", name: "user")
-  userGraphQLHeaders(id: Int!): User
+  userGraphQlHeaders(id: Int!): User
     @graphQL(baseURL: "http://upstream/graphql", headers: [{key: "id", value: "{{.args.id}}"}], name: "user")
   userHttpHeaders(id: ID!): User @http(headers: [{key: "id", value: "{{.args.id}}"}], path: "/users")
   userHttpQuery(id: ID!): User @http(path: "/users", query: [{key: "id", value: "{{.args.id}}"}])

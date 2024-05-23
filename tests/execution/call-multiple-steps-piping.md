@@ -17,11 +17,11 @@ type Query {
   abc_input(input: JSON): JSON
     @call(
       steps: [
-        {query: "wrap_input", args: {input: "{{.args.input}}"}}
-        {query: "a_input"}
-        {query: "wrap_input"}
-        {query: "b_input"}
-        {query: "wrap_input"}
+        {query: "wrapInput", args: {input: "{{.args.input}}"}}
+        {query: "aInput"}
+        {query: "wrapInput"}
+        {query: "bInput"}
+        {query: "wrapInput"}
         {query: "c"}
       ]
     )
@@ -29,9 +29,9 @@ type Query {
     @call(
       steps: [
         {query: "a", args: {input: "{{.args.input}}"}}
-        {query: "wrap_args"}
+        {query: "wrapArgs"}
         {query: "b"}
-        {query: "wrap_args"}
+        {query: "wrapArgs"}
         {query: "c"}
       ]
     )

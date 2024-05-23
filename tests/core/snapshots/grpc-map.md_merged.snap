@@ -1,5 +1,6 @@
 ---
 source: tests/core/spec.rs
+assertion_line: 235
 expression: formatter
 ---
 schema
@@ -9,15 +10,15 @@ schema
   query: Query
 }
 
-input map__MapRequest {
+type MapMapRequest {
+  map: JSON!
+}
+
+type MapMapResponse @tag(id: "map.MapResponse") {
   map: JSON!
 }
 
 type Query {
-  map__MapService__GetMap(mapRequest: map__MapRequest!): map__MapResponse!
+  mapMapServiceGetMap(mapRequest: map__MapRequest!): map__MapResponse!
     @grpc(body: "{{.args.mapRequest}}", method: "map.MapService.GetMap")
-}
-
-type map__MapResponse @tag(id: "map.MapResponse") {
-  map: JSON!
 }

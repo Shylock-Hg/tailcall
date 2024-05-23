@@ -1,16 +1,17 @@
 ---
 source: tests/core/spec.rs
-expression: merged
+assertion_line: 235
+expression: formatter
 ---
 schema @server(showcase: true) @upstream {
   query: Query
 }
 
 type Query {
-  not_user: User @http(baseURL: "http://jsonplaceholder.typicode.com", path: "/users/1")
+  notUser: User @http(baseURL: "http://jsonplaceholder.typicode.com", path: "/users/1")
 }
 
 type User {
-  not_id: Int
-  not_name: String
+  notId: Int
+  notName: String
 }

@@ -1,6 +1,7 @@
 ---
 source: tests/core/spec.rs
-expression: merged
+assertion_line: 235
+expression: formatter
 ---
 schema @server @upstream {
   query: Query
@@ -12,7 +13,7 @@ type A {
   d: D @modify(omit: true)
 }
 
-type BC {
+type Bc {
   d: D
   f: Boolean
 }

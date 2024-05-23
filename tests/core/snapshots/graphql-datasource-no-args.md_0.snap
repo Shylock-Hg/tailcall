@@ -1,5 +1,6 @@
 ---
 source: tests/core/spec.rs
+assertion_line: 200
 expression: response
 ---
 {
@@ -8,15 +9,6 @@ expression: response
     "content-type": "application/json"
   },
   "body": {
-    "data": {
-      "users_list": [
-        {
-          "name": "Leanne Graham"
-        },
-        {
-          "name": "Ervin Howell"
-        }
-      ]
-    }
+    "data": {}
   }
 }

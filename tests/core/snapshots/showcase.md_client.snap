@@ -1,6 +1,7 @@
 ---
 source: tests/core/spec.rs
-expression: client
+assertion_line: 278
+expression: formatted
 ---
 scalar Date
 
@@ -13,14 +14,14 @@ scalar JSON
 scalar PhoneNumber
 
 type Query {
-  not_user: User
+  notUser: User
 }
 
 scalar Url
 
 type User {
-  not_id: Int
-  not_name: String
+  notId: Int
+  notName: String
 }
 
 schema {

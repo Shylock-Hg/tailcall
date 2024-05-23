@@ -1,13 +1,14 @@
 ---
 source: tests/core/spec.rs
-expression: merged
+assertion_line: 235
+expression: formatter
 ---
 schema @server @upstream {
   query: Query
 }
 
 type Query {
-  users_list: [User] @graphQL(baseURL: "http://upstream/graphql", name: "users")
+  usersList: [User] @graphQL(baseURL: "http://upstream/graphql", name: "users")
 }
 
 type User {

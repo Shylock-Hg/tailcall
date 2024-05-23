@@ -679,11 +679,14 @@ impl Config {
     }
 
     pub fn from_source(source: Source, schema: &str) -> Result<Self> {
-        match source {
-            Source::GraphQL => Ok(Config::from_sdl(schema).to_result()?),
-            Source::Json => Ok(Config::from_json(schema)?),
-            Source::Yml => Ok(Config::from_yaml(schema)?),
-        }
+        let config = match source {
+            Source::GraphQL => Config::from_sdl(schema).to_result()?,
+            Source::Json => Config::from_json(schema)?,
+            Source::Yml => Config::from_yaml(schema)?,
+        };
+        let lint = config.server.lint.clone().unwrap_or_default();
+        let config = lint.lint(config).to_result()?;
+        Ok(config)
     }
 
     pub fn n_plus_one(&self) -> Vec<Vec<(String, String)>> {

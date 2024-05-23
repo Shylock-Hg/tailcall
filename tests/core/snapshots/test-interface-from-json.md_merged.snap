@@ -1,18 +1,19 @@
 ---
 source: tests/core/spec.rs
-expression: merged
+assertion_line: 235
+expression: formatter
 ---
 schema @server @upstream(baseURL: "http://jsonplaceholder.typicode.com") {
   query: Query
 }
 
-interface IA {
-  a: String
-}
-
 type B implements IA {
   a: String
   b: String
+}
+
+type Ia {
+  a: String
 }
 
 type Query {

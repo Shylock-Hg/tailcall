@@ -1,6 +1,7 @@
 ---
 source: tests/core/spec.rs
-expression: client
+assertion_line: 278
+expression: formatted
 ---
 scalar Date
 
@@ -13,7 +14,7 @@ scalar JSON
 scalar PhoneNumber
 
 type Query {
-  users_list: [User]
+  usersList: [User]
 }
 
 scalar Url

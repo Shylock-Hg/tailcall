@@ -5,6 +5,7 @@ use serde::{Deserialize, Serialize};
 use super::merge_key_value_vecs;
 use crate::core::config::headers::Headers;
 use crate::core::config::KeyValue;
+use crate::core::config::lint::Lint;
 use crate::core::is_default;
 use crate::core::macros::MergeRight;
 use crate::core::merge_right::MergeRight;
@@ -94,6 +95,9 @@ pub struct Server {
     /// `workers` sets the number of worker threads. @default the number of
     /// system cores.
     pub workers: Option<usize>,
+
+    /// The lint of schema
+    pub lint: Option<Lint>,
 }
 
 fn merge_right_vars(mut left: Vec<KeyValue>, right: Vec<KeyValue>) -> Vec<KeyValue> {
